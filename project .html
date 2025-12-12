@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Incident Response System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .content {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 15px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cybersecurity Incident Response System</h1>
+    </header>
+
+    <div class="container">
+        <!-- Dashboard Section -->
+        <div class="content">
+            <h2>Dashboard</h2>
+            <p>Monitor real-time security events and alerts.</p>
+            <!-- In a real application, this would be dynamic -->
+        </div>
+
+        <!-- Incident Logging Form -->
+        <div class="content">
+            <h2>Log a New Incident</h2>
+            <form id="incidentForm">
+                <label for="incidentType">Incident Type:</label>
+                <input type="text" id="incidentType" name="incidentType" placeholder="e.g., Phishing Attack" required>
+
+                <label for="incidentDescription">Description:</label>
+                <textarea id="incidentDescription" name="incidentDescription" rows="5" placeholder="Describe the incident" required></textarea>
+
+                <label for="responseTaken">Response Taken:</label>
+                <textarea id="responseTaken" name="responseTaken" rows="3" placeholder="What actions were taken?" required></textarea>
+
+                <label for="incidentTime">Time of Incident:</label>
+                <input type="datetime-local" id="incidentTime" name="incidentTime" required>
+
+                <button type="submit">Log Incident</button>
+            </form>
+        </div>
+
+        <!-- Incident Management Section -->
+        <div class="content">
+            <h2>Incident Management</h2>
+            <p>View and manage logged incidents.</p>
+            <ul id="incidentList">
+                <!-- Logged incidents will be displayed here -->
+            </ul>
+        </div>
+
+        <!-- Reports Section -->
+        <div class="content">
+            <h2>Reports</h2>
+            <p>Generate and view incident reports for further analysis.</p>
+            <!-- In a real application, this would allow for report generation -->
+        </div>
+    </div>
+
+    <script>
+        // Simple JavaScript to handle form submission and display logged incidents
+        const incidentForm = document.getElementById('incidentForm');
+        const incidentList = document.getElementById('incidentList');
+
+        incidentForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const incidentType = document.getElementById('incidentType').value;
+            const incidentDescription = document.getElementById('incidentDescription').value;
+            const responseTaken = document.getElementById('responseTaken').value;
+            const incidentTime = document.getElementById('incidentTime').value;
+
+            const listItem = document.createElement('li');
+            listItem.textContent = Type: ${incidentType}, Description: ${incidentDescription}, Response: ${responseTaken}, Time: ${incidentTime};
+
+            incidentList.appendChild(listItem);
+
+            // Clear the form after submission
+            incidentForm.reset();
+        });
+    </script>
+</body>
+</html>
